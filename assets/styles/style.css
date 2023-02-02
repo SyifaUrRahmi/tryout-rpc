@@ -1,0 +1,48 @@
+* {
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.mx-auto {
+	width: 1100px;
+}
+
+.kotak {
+	background-color: #07b1bc;
+}
+
+.card {
+	margin-top: 10px;
+	background-color: #07b1bc;
+}
+
+.fraction {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 0.2em 0.4ex;
+	text-align: center;
+}
+.span {
+	display: block;
+	padding-top: 0.15em;
+}
+
+.fdn {
+	border-top: thin solid black;
+}
+.bar {
+	display: none;
+}
+
+.kiri {
+	display: inline-block;
+	margin-bottom: -0.3em;
+	vertical-align: -0.4em;
+	line-height: 1em;
+	font-size: 80%;
+	text-align: right;
+}
+.spsb {
+	font-size: inherit;
+	line-height: inherit;
+	vertical-align: baseline;
+}
