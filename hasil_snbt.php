@@ -197,7 +197,7 @@
                               $salah++;
                           }
 
-                          $query7  = mysqli_query($koneksi, "SELECT * FROM penalaran_matematika WHERE id='$nomor' AND jawaban='$jawaban' and bobot=80");
+                          $query7  = mysqli_query($koneksi, "SELECT * FROM penalaran_matematika WHERE id='$nomor' AND jawaban='$jawaban' and bobot=10");
                           $cek7    =mysqli_num_rows($query7);
                           
                           // bobot 80
@@ -216,9 +216,9 @@
                       $score4 = $benar4 * 50;
                       $score5 = $benar5 * 60;
                       $score6 = $benar6 * 70;
-                      $score7 = $benar7 * 80;
+                      $score7 = $benar7 * 10;
                       
-                      $hasil = $score1 + $score2 + $score3 + $score4 + $score5 + $score6 + $score7; 
+                      $hasil = 300 + $score1 + $score2 + $score3 + $score4 + $score5 + $score6 + $score7; 
 
                       $id = $currentUser['id'];
                       $update = "update user set penalaran_matematika = '$hasil' where id = '$id'";
@@ -260,37 +260,37 @@
 					<tr>
 						<th scope="row">1</th>
 						<td>Kemampuan Penalaran Umum</td>
-						<td><?php echo $data['penalaran_umum'] ?>/1030</td>
+						<td><?php echo $data['penalaran_umum'] ?>/842</td>
 					</tr>
 					<tr>
 						<th scope="row">2</th>
 						<td>Pengetahuan & Pemahaman Umum</td>
-						<td><?php echo $data['pengetahuan_pemahaman'] ?>/1000</td>
+						<td><?php echo $data['pengetahuan_pemahaman'] ?>/875</td>
 					</tr>
 					<tr>
 						<th scope="row">3</th>
 						<td>Kemampuan Memahami Bacaan & Menulis</td>
-						<td><?php echo $data['memahami_bacaan_menulis'] ?>/1000</td>
+						<td><?php echo $data['memahami_bacaan_menulis'] ?>/995</td>
 					</tr>
 					<tr>
 						<th scope="row">4</th>
 						<td>Pengetahuan Kuantitatif</td>
-						<td><?php echo $data['pengetahuan_kuantitatif'] ?>/860</td>
+						<td><?php echo $data['pengetahuan_kuantitatif'] ?>/816</td>
 					</tr>
 					<tr>
 						<th scope="row">5</th>
 						<td>Literasi dalam Bahasa Indonesia</td>
-						<td><?php echo $data['literasi_indonesia'] ?>/900</td>
+						<td><?php echo $data['literasi_indonesia'] ?>/950</td>
 					</tr>
 					<tr>
 						<th scope="row">6</th>
 						<td>Literasi dalam Bahasa Inggris</td>
-						<td><?php echo $data['literasi_inggris'] ?>/950</td>
+						<td><?php echo $data['literasi_inggris'] ?>/1050</td>
 					</tr>
 					<tr>
 						<th scope="row">7</th>
 						<td>Penalaran Matematika</td>
-						<td><?php echo $data['penalaran_matematika'] ?>/1070</td>
+						<td><?php echo $data['penalaran_matematika'] ?>/1180</td>
 					</tr>
 				</tbody>
 			</table>
