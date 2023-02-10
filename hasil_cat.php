@@ -85,54 +85,108 @@
 				</div>
 			</div>
 		</nav>
-	<!--NILAI TWK-->
+	<!--NILAI TKP-->
 	<?php
             include "koneksi.php";
             	 
-						    $scoretwk   = 0;
-						    $benartwk   = 0;
-						  $salahtwk    = 0;
-						  $hasiltwk    = 0;
+						    $score5 = 0;
+						    $score4 = 0;
+						    $score3 = 0;
+						    $score2 = 0;
+						    $score1 = 0;
+						    $benar5 = 0;
+						    $benar4 = 0;
+						    $benar3 = 0;
+						    $benar2 = 0;
+						    $benar1 = 0;
+						  $salahtkp    = 0;
+						  $hasiltkp    = 0;
 						  $sukses = '';
 						  $error = '';
 						  
                   if(isset($_POST['next'])){
-                    if(empty($_POST['pilihantwk'])){
-                      $_POST["pilihantwk"] = "";
+                    if(empty($_POST['pilihantkp'])){
+                      $_POST["pilihantkp"] = "";
                   
                   }
-                  $pilihantwk    =$_POST["pilihantwk"];
+                  $pilihantkp    =$_POST["pilihantkp"];
                   $id_soal    =$_POST["id"];
-                  $jumlahtwk     =$_POST["jumlahtwk"];
+                  $jumlahtkp     =$_POST["jumlahtkp"];
 
-                  for($i=0;$i<$jumlahtwk;$i++){
-                      $nomortwk    =$id_soal[$i];
+                  for($i=0;$i<$jumlahtkp;$i++){
+                      $nomortkp    =$id_soal[$i];
                       
                       // jika peserta tidak memilih jawaban
-                      if(empty($pilihantwk[$nomortwk])){
-                          $salahtwk++;
+                      if(empty($pilihantkp[$nomortkp])){
+                          $salahtkp++;
                       }
                       // jika memilih
                       else {
-                          $jawabantwk  = $pilihantwk[$nomortwk];
+                          $jawabantkp  = $pilihantkp[$nomortkp];
                           // cocokan kunci jawaban dengan database
-                          $querytwk  = mysqli_query($koneksi, "SELECT * FROM twk WHERE id='$nomortwk' AND jawaban='$jawabantwk' ");
-                          $cektwk    =mysqli_num_rows($querytwk);
-                          // bobot 20
-                          if($cektwk){
-                            $benartwk++;
+                          $query5  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND skor5='$jawabantkp'");
+                          $cek5    =mysqli_num_rows($query5);
+                          
+                          if($cek5){
+                            $benar5++;
                           }
                           else {
-                              $salahtwk++;
+                              $salahtkp++;
+                          }
+
+													$query4  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND skor4='$jawabantkp'");
+                          $cek4    =mysqli_num_rows($query4);
+                          
+                          if($cek4){
+                            $benar4++;
+                          }
+                          else {
+                              $salahtkp++;
+                          }
+
+													$query3  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND skor3='$jawabantkp'");
+                          $cek3    =mysqli_num_rows($query3);
+                          
+                          if($cek3){
+                            $benar3++;
+                          }
+                          else {
+                              $salahtkp++;
+                          }
+
+													$query2  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND skor2='$jawabantkp'");
+                          $cek2    =mysqli_num_rows($query2);
+                          
+                          if($cek2){
+                            $benar2++;
+                          }
+                          else {
+                              $salahtkp++;
+                          }
+
+													$query1  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND skor1='$jawabantkp'");
+                          $cek1    =mysqli_num_rows($query1);
+                          
+                          if($cek1){
+                            $benar1++;
+                          }
+                          else {
+                              $salahtkp++;
                           }
 
                           
                       }
-                      $scoretwk = $benartwk * 5; 
+                      $score5 = $benar5 * 5;
+											$score4 = $benar4 * 4;
+											$score3 = $benar3 * 3;
+											$score2 = $benar2 * 2;
+											$score1 = $benar1 * 1; 
+
+											$hasiltkp = $score5 + $score4 + $score3 + $score2 + $score1;
 
                       $id = $currentUser['id'];
-                      $updatetwk = "update user set twk = '$scoretwk' where id = '$id'";
-                      $sqltwk    = mysqli_query($koneksi, $updatetwk);
+                      $updatetkp = "update user set tkp = '$hasiltkp' where id = '$id'";
+                      $sqltkp    = mysqli_query($koneksi, $updatetkp);
                       
 
                   }
@@ -197,56 +251,53 @@
 					
       ?>
       
-      <!--NILAI TKP-->
+      <!--NILAI TWK-->
       <?php
             include "koneksi.php";
-						    $scoretkp   = 0;
-						    $benartkp   = 0;
-						  
-						  $salahtkp    = 0;
-						  $hasiltkp    = 0;
+						    $scoretwk   = 0;
+						    $benartwk   = 0;
+						  $salahtwk    = 0;
+						  $hasiltwk    = 0;
 						  $sukses = '';
 						  $error = '';
 						  
                   if(isset($_POST['next'])){
-                    if(empty($_POST['pilihantkp'])){
-                      $_POST["pilihantkp"] = "";
+                    if(empty($_POST['pilihantwk'])){
+                      $_POST["pilihantwk"] = "";
                   
                   }
-                  $pilihantkp    =$_POST["pilihantkp"];
+                  $pilihantwk    =$_POST["pilihantwk"];
                   $id_soal    =$_POST["id"];
-                  $jumlahtkp     =$_POST["jumlahtkp"];
+                  $jumlahtwk     =$_POST["jumlahtwk"];
 
-                  for($i=0;$i<$jumlahtkp;$i++){
-                      $nomortkp    =$id_soal[$i];
+                  for($i=0;$i<$jumlahtwk;$i++){
+                      $nomortwk    =$id_soal[$i];
                       
                       // jika peserta tidak memilih jawaban
-                      if(empty($pilihantkp[$nomortkp])){
-                          $salahtkp++;
+                      if(empty($pilihantwk[$nomortwk])){
+                          $salahtwk++;
                       }
                       // jika memilih
                       else {
-                          $jawabantkp  = $pilihantkp[$nomortkp];
+                          $jawabantwk  = $pilihantwk[$nomortwk];
                           // cocokan kunci jawaban dengan database
-                          $querytkp  = mysqli_query($koneksi, "SELECT * FROM tkp WHERE id='$nomortkp' AND jawaban='$jawabantkp' ");
-                          $cektkp    =mysqli_num_rows($querytkp);
+                          $querytwk  = mysqli_query($koneksi, "SELECT * FROM twk WHERE id='$nomortwk' AND jawaban='$jawabantwk' ");
+                          $cektwk    =mysqli_num_rows($querytwk);
                           // bobot 20
-                          if($cektkp){
-                            $benartkp++;
+                          if($cektwk){
+                            $benartwk++;
                           }
                           else {
-                              $salahtkp++;
+                              $salahtwk++;
                           }
-
 
                           
                       }
-                      $scoretkp = $benartkp * 5; 
-                    
+                      $scoretwk = $benartwk * 5; 
 
                       $id = $currentUser['id'];
-                      $updatetkp = "update user set tkp = '$scoretkp' where id = '$id'";
-                      $sqltkp    = mysqli_query($koneksi, $updatetkp);
+                      $updatetwk = "update user set twk = '$scoretwk' where id = '$id'";
+                      $sqltwk    = mysqli_query($koneksi, $updatetwk);
                       
                     
 
@@ -261,7 +312,7 @@
 					$query = mysqli_query($koneksi, "SELECT * FROM user where id='$id'");
 					$data = mysqli_fetch_array($query);	
       ?>
-      <div><?php echo $benartkp ?></div>
+      <div><?php echo $benar5 ?></div>
       
 				<div align="center">
 		  <!-- <div
